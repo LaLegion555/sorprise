@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hey Miss!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                 maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <link rel="stylesheet" href="assests/css/dino.css">
+  <script src="assests/scripts/dino.js"></script>
+  <script src="assests/scripts/index.min.js"></script>
+  <style>
+  #my-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100000;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  #my-canvas.active {
+    visibility: visible;
+  }
+
+  .popup.active {
+  visibility: visible;
+}
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 450px;
+    height: 300px;
+    box-shadow: 0 25px 50pxx rgba(0, 0, 0, 0.1),
+      0 0 0 1000px rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    visibility: hidden;
+  }
+</style>
+</head>
+
+
+
+
+<body id="t" style="font-family: 'Segoe UI', Tahoma, sans-serif; font-size: 75%">
+  <canvas id="my-canvas"></canvas>
+  <div class="contenedor">
+    <div id="main-frame-error" class="interstitial-wrapper">
+      <div id="main-content">
+        <div class="icon" jseval="updateIconClass(this.classList, iconClass)" alt=""></div>
+        <div id="main-message">
+          <h1 jsselect="heading" jsvalues=".innerHTML:msg"></h1>
+          <p jsselect="summary" jsvalues=".innerHTML:msg"></p>
+          <div id="suggestions-list" style="display:none"
+            jsdisplay="(suggestionsSummaryList && suggestionsSummaryList.length)">
+            <p jsvalues=".innerHTML:suggestionsSummaryListHeader"></p>
+            <ul jsvalues=".className:suggestionsSummaryList.length == 1 ? 'single-suggestion' : ''">
+              <li jsselect="suggestionsSummaryList" jsvalues=".innerHTML:summary"></li>
+            </ul>
+          </div>
+          <div class="error-code" jscontent="errorCode"></div>
+          <div id="diagnose-frame" class="hidden"></div>
+        </div>
+      </div>
+
+      <div id="details" class="hidden">
+        <div class="suggestions" jsselect="suggestionsDetails">
+          <div class="suggestion-header" jsvalues=".innerHTML:header"></div>
+          <div class="suggestion-body" jsvalues=".innerHTML:body"></div>
+        </div>
+      </div>
+    </div>
+    <div id="sub-frame-error">
+      <div class="icon" jseval="updateIconClass(this.classList, iconClass)"></div>
+      <div id="sub-frame-error-details" jsselect="summary" jsvalues=".innerHTML:msg"></div>
+    </div>
+
+    <div id="offline-resources">
+      <img id="offline-resources-1x" src="assests/images/100-offline-sprite.png">
+      <img id="offline-resources-2x" src="assests/images/200-offline-sprite.png">
+      <template id="audio-resources">
+    </div>
+  </div>
+
+</body>
+
+</html>

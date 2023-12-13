@@ -1,0 +1,19 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+    background: rgb(83, 76, 68);
+}
+h1{
+    text-align: center;
+    color: azure;
+}
+span{
+    color: aliceblue;
+}
+body{
+    text-align: center;
+}
+.inicio{
+    text-align: center;
+}
